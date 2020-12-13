@@ -96,9 +96,6 @@ namespace EsercizioGit
             int Var3 = int.Parse(textBox5.Text);
             int Var4 = int.Parse(textBox6.Text);
 
-
-          
-
             dataGridView1.RowCount = x + 1;
             dataGridView1.ColumnCount = y + 1;
 
