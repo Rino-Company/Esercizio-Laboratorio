@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,6 +87,16 @@ namespace EsercizioGit
                 MessageBox.Show("Compilare tutti i campi obbligatori");
                 return;
             }
+            if (textBox5.Text.Length < 1)
+            {
+                MessageBox.Show("Compilare tutti i campi obbligatori");
+                return;
+            }
+            if (textBox6.Text.Length < 1)
+            {
+                MessageBox.Show("Compilare tutti i campi obbligatori");
+                return;
+            }
 
             int x = int.Parse(textBox1.Text);
             int y = int.Parse(textBox2.Text);
@@ -95,6 +105,10 @@ namespace EsercizioGit
             int Var2 = int.Parse(textBox4.Text);
             int Var3 = int.Parse(textBox5.Text);
             int Var4 = int.Parse(textBox6.Text);
+
+
+            int count = 0;
+            int count2 = 0;
 
             dataGridView1.RowCount = x + 1;
             dataGridView1.ColumnCount = y + 1;
@@ -112,15 +126,22 @@ namespace EsercizioGit
                 
                 for (int c2 = 0; c2 <= y; c2++)
                 {
-                    if (r2 == x)
+                                       
+                    if (c2 == y && r2 == x)
+                    {
+                        dataGridView1.Rows[r2].Cells[c2].Value = count + count2;
+                    }
+                    else if (r2 == x && c2 != y)
                     {
                         int n2 = random.Next(Var3, Var4);
                         dataGridView1.Rows[r2].Cells[c2].Value = n2;
+                        count = count + n2;
                     }
-                    else
+                    else if (c2 == y && r2 != x)
                     {
                         int n2 = random.Next(Var3, Var4);
                         dataGridView1.Rows[r2].Cells[y].Value = n2;
+                        count2 = count2 + n2;
                     }
                 }
                 
