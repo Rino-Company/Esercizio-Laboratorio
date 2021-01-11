@@ -42,7 +42,8 @@ namespace EsercizioGit
 
             dataGridView1.RowCount = x + 1;
             dataGridView1.RowHeadersVisible = true;
-            for(int i = 0; i < x; i++)
+            dataGridView1.ReadOnly = true;
+            for (int i = 0; i < x; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = "Produttore" + (i + 1);
             }
@@ -117,36 +118,30 @@ namespace EsercizioGit
             {
                 for (int c = 0; c < y; c++)
                 {
-                    int n = random.Next(Var1, Var2);
+                    int n = random.Next(Var1, Var2+1);
                     dataGridView1.Rows[r].Cells[c].Value = n;
                 }
             }
-            for (int r2 = 0; r2 <= x; r2++)
+            for (int c2 = 0; c2 <= y - 1; c2++)
             {
-                
-                for (int c2 = 0; c2 <= y; c2++)
-                {
-                                       
-                    if (c2 == y && r2 == x)
-                    {
-                        dataGridView1.Rows[r2].Cells[c2].Value = count + count2;
-                    }
-                    else if (r2 == x && c2 != y)
-                    {
-                        int n2 = random.Next(Var3, Var4);
-                        dataGridView1.Rows[r2].Cells[c2].Value = n2;
-                        count = count + n2;
-                    }
-                    else if (c2 == y && r2 != x)
-                    {
-                        int n2 = random.Next(Var3, Var4);
-                        dataGridView1.Rows[r2].Cells[y].Value = n2;
-                        count2 = count2 + n2;
-                    }
-                }
-                
+                int n2 = random.Next(Var3, Var4+1);
+                dataGridView1.Rows[x].Cells[c2].Value = n2;
+                count = count + n2;
             }
+            dataGridView1.Rows[x].Cells[y].Value = count;
+
+            for (int r2 = 0; r2 < x-1; r2++)
+            {
+                int n2 = random.Next(Var3, Var4+1);
+                dataGridView1.Rows[r2].Cells[y].Value = n2;
+                count2 = count2 + n2;
+            }
+            dataGridView1.Rows[x-1].Cells[y].Value = count - count2;
+            
+        }
+
+   
+    }
 
         }
-    }
-}
+    
