@@ -247,7 +247,7 @@ namespace EsercizioGit
             this.Controls.Add(this.CreateButton);
             this.Name = "Progetto";
             this.Opacity = 0.9D;
-            this.Text = "Form1";
+            this.Text = "Table Generator";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
